@@ -1,0 +1,13 @@
+pandas
+google-play-scraper
+pyyaml
+python-dotenv
+groq
+rank_bm25
+requests
+beautifulsoup4
+trafilatura
+streamlit
+mcp
+pytest
+ruff

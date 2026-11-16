@@ -1,0 +1,6 @@
+---
+description: Review Pulse project rules — always read project memory before acting
+alwaysApply: true
+---
+
+Read and follow CLAUDE.md and docs/implementation.md before every action.

@@ -1,0 +1,25 @@
+# Secrets
+.env
+
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# LLM cache (local only; do not commit live cache unless a phase explicitly says to)
+data/cache/*
+!data/cache/.gitkeep
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
