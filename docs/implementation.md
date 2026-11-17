@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P4 code complete — waiting for user to fill config/sources.yaml before P6
+**Status:** P5 complete — ready for P6 (sources.yaml needs source_id/title fields)
 **Last updated:** 2026-11-16
 
 ---
@@ -272,9 +272,9 @@ python -c "from pathlib import Path; t=Path('outputs/weekly_pulse.md').read_text
 Expect: ≤250 words; four sections visible; three actions.
 
 ### Acceptance criteria
-- [ ] `outputs/weekly_pulse.md` ≤250 words with all four sections
-- [ ] All numbers inserted by code; 3 actions reference quotes
-- [ ] Commit `phase 5: weekly product pulse`
+- [x] `outputs/weekly_pulse.md` ≤250 words with all four sections
+- [x] All numbers inserted by code; 3 actions reference quotes
+- [x] Commit `phase 5: weekly product pulse`
 
 ### What I should learn here
 Controlled summarisation means the model writes prose inside a skeleton you own. Word limits force clarity for a one-minute PM read.

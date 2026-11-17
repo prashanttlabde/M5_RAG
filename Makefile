@@ -17,7 +17,7 @@ analyze:
 	PYTHONPATH=. $(PYTHON) -m src.analyze
 
 write:
-	@echo "not implemented (phase P5)"
+	PYTHONPATH=. $(PYTHON) -m src.writer
 
 rag:
 	@echo "not implemented (phase P6)"
