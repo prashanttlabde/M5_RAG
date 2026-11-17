@@ -27,13 +27,19 @@ TRIM_CHARS = 300
 MAX_ATTEMPTS = 4
 
 _DEFINITIONS = (
-    "Stance definitions:\n"
-    "- confused: the user does NOT understand what they were charged or why (unexpected charge, "
-    "unclear billing, tax/GST surprise, cannot tell what a plan includes, cancelled but still charged).\n"
-    "- complaint_only: the user understands the price but dislikes it (too expensive, paywall, limits).\n"
+    "Stance definitions (be strict):\n"
+    "- confused: the user explicitly does NOT understand, or was surprised by, a charge, price, refund, "
+    "tax/GST, renewal, or what a plan includes. Typical signs: 'why was I charged', 'unexpected charge', "
+    "'charged after cancelling', 'I paid but it still says free', 'what does this plan include', "
+    "'hit a limit I did not expect on my paid plan'.\n"
+    "- complaint_only: the user understands the pricing but dislikes it (too expensive, paywall, "
+    "usage limits, forced upgrade prompts, no refund policy, payment method not supported).\n"
     "- praise: positive about price or value.\n"
-    "- unrelated: money word used but not about fees or pricing.\n"
-    '"Too expensive" is complaint_only, never confused.\n'
+    "- unrelated: the review is really about something else (crashes, bugs, lost chats, ads, censorship, "
+    "wrong answers), even if the user mentions being a paying customer.\n"
+    'Examples: "too expensive" -> complaint_only. "app keeps crashing, I pay a subscription" -> unrelated. '
+    '"I was charged twice and don\'t know why" -> confused.\n'
+    "When unsure between confused and anything else, choose the other label.\n"
 )
 
 
@@ -85,7 +91,7 @@ def label_batch(batch: pd.DataFrame, topics: list[str]) -> dict[int, tuple[str, 
             "with one entry per review index listed. Do not count anything.\n"
             f"Reviews:\n{_lines(batch, missing)}"
         )
-        data = ask_json(prompt, {"labels": "array"}, cache_key=f"fee-labels-v1-{attempt}")
+        data = ask_json(prompt, {"labels": "array"}, cache_key=f"fee-labels-v2-{attempt}")
         for item in data["labels"]:
             if (
                 isinstance(item, dict)

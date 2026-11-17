@@ -94,10 +94,10 @@
   },
   "fee": {
     "topic": "billing_issues",
-    "confused": 47,
-    "complaint_only": 92,
+    "confused": 48,
+    "complaint_only": 80,
     "praise": 0,
-    "unrelated": 33,
+    "unrelated": 44,
     "money_reviews": 172
   }
 }
