@@ -1,7 +1,6 @@
 """Implements architecture §7 chunking: sentence-aware chunks with ~15% overlap.
 
-Chunk size was tuned with the user from the plan's ~300-500 tokens to ~55 chunks for this corpus
-(about 130 words each). Tokens are estimated as words x 1.33. Output: data/chunks.jsonl with
+Chunk size was set with the user from the plan's ~300-500 tokens to ~120 words (~160 tokens). Tokens are estimated as words x 1.33. Output: data/chunks.jsonl with
 {chunk_id, source_id, source_url, section, fetched_at, text}.
 """
 
@@ -14,8 +13,8 @@ from src import config
 from src.errors import DataError
 from src.rag.fetch import META_JSON, load_sources
 
-TARGET_WORDS = 130  # ~175 tokens; tuned with the user to ~55 chunks for this ~6,000-word corpus
-MAX_WORDS = 190  # ~250 tokens
+TARGET_WORDS = 120  # ~160 tokens; user-chosen chunk size
+MAX_WORDS = 180  # ~240 tokens
 OVERLAP_SHARE = 0.15
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9\"“(])")
 

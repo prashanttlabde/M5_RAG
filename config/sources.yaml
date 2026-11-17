@@ -19,3 +19,21 @@ sources:
   - source_id: play_16408159
     title: "Google Play Help article 16408159"
     url: "https://support.google.com/googleplay/android-developer/answer/16408159?hl=en-AE"
+  - source_id: openai_7232895
+    title: "How do i request a refund for my chatgpt subscription (OpenAI Help)"
+    url: "https://help.openai.com/en/articles/7232895-how-do-i-request-a-refund-for-my-chatgpt-subscription"
+  - source_id: openai_12356340
+    title: "How can i find my past chatgpt invoices (OpenAI Help)"
+    url: "https://help.openai.com/en/articles/12356340-how-can-i-find-my-past-chatgpt-invoices"
+  - source_id: openai_7232908
+    title: "How do i submit a vat exemption request (OpenAI Help)"
+    url: "https://help.openai.com/en/articles/7232908-how-do-i-submit-a-vat-exemption-request"
+  - source_id: openai_9038389
+    title: "OpenAI Help article 9038389"
+    url: "https://help.openai.com/articles/9038389"
+  - source_id: play_11131145
+    title: "Google Play Help article 11131145"
+    url: "https://support.google.com/googleplay/android-developer/answer/11131145?hl=en-IN"
+  - source_id: play_138000
+    title: "Google Play Help article 138000"
+    url: "https://support.google.com/googleplay/android-developer/answer/138000?hl=EN-GB"

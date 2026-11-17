@@ -21,6 +21,7 @@ from src.errors import ConfigError, DataError
 
 log = logging.getLogger("review_pulse.fetch")
 
+MAX_SOURCES = 12
 MIN_CHARS = 400
 META_JSON = config.SOURCES_TEXT_DIR / "meta.json"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; review-pulse-student-project)"}
@@ -32,8 +33,8 @@ def load_sources() -> list[dict]:
         raise ConfigError("config/sources.yaml missing. Fill it in yourself.")
     data = yaml.safe_load(config.SOURCES_YAML.read_text(encoding="utf-8")) or {}
     sources = data.get("sources") or []
-    if not 1 <= len(sources) <= 8:
-        raise ConfigError("config/sources.yaml should list 4-6 official sources.")
+    if not 1 <= len(sources) <= MAX_SOURCES:
+        raise ConfigError(f"config/sources.yaml should list 1-{MAX_SOURCES} official sources.")
     for s in sources:
         if not all(isinstance(s.get(k), str) and s[k] for k in ("source_id", "title", "url")):
             raise ConfigError(f"Each source needs source_id, title, url: {s}")
