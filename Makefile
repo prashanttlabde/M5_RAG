@@ -14,7 +14,7 @@ collect:
 	PYTHONPATH=. $(PYTHON) -m src.collect.clean
 
 analyze:
-	@echo "not implemented (phase P2/P3/P4)"
+	PYTHONPATH=. $(PYTHON) -m src.analyze
 
 write:
 	@echo "not implemented (phase P5)"

@@ -1,0 +1,27 @@
+[
+  {
+    "theme_id": "t1",
+    "name": "Performance",
+    "description": "Users report slow response, crashes, scrolling glitches, and voice quality problems."
+  },
+  {
+    "theme_id": "t2",
+    "name": "Limits & Paywall",
+    "description": "Frequent complaints about daily image/chat limits and the push to upgrade to premium."
+  },
+  {
+    "theme_id": "t3",
+    "name": "Accuracy",
+    "description": "Issues with wrong or incomplete answers, hallucinations, and censorship of generated content."
+  },
+  {
+    "theme_id": "t4",
+    "name": "Education Value",
+    "description": "Positive feedback on using the app for study, assignments, notes, and research assistance."
+  },
+  {
+    "theme_id": "t5",
+    "name": "UI/UX",
+    "description": "Feedback on interface quirks, settings, dark mode, conversation persistence, and attachment handling."
+  }
+]

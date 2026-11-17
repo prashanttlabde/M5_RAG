@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P1 complete — ready for P2  
+**Status:** P2 complete — ready for P3
 **Last updated:** 2026-11-16
 
 ---
@@ -156,10 +156,10 @@ ls data/cache | head
 Expect: ≤5 themes; assignments cover reviews; cache files appear.
 
 ### Acceptance criteria
-- [ ] `ask_json` validates, retries, caches
-- [ ] `data/themes.json` has at most 5 themes
-- [ ] `data/assignments.csv` has `review_id, theme_id`
-- [ ] Commit `phase 2: llm layer and theme discovery`
+- [x] `ask_json` validates, retries, caches
+- [x] `data/themes.json` has at most 5 themes
+- [x] `data/assignments.csv` has `review_id, theme_id`
+- [x] Commit `phase 2: llm layer and theme discovery`
 
 ### What I should learn here
 “Ask for JSON and validate it” is how you make an LLM safe to automate. Caching makes demos cheap and reproducible.
