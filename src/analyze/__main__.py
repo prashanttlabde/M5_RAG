@@ -8,6 +8,7 @@ import pandas as pd
 
 from src import config
 from src.analyze.classify import classify_all
+from src.analyze.fee import run_fee
 from src.analyze.quotes import pick_quote
 from src.analyze.rank import compute_theme_stats, load_joined, rank_top3, ranking_rule
 from src.analyze.themes import discover_themes
@@ -59,6 +60,7 @@ def main() -> None:
     }
     config.INSIGHTS_JSON.write_text(json.dumps(insights, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"wrote {config.INSIGHTS_JSON.name}: top3 = {[by_id[t]['name'] for t in top3]}")
+    run_fee()
 
 
 if __name__ == "__main__":

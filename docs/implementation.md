@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P3 complete — ready for P4
+**Status:** P4 code complete — waiting for user to fill config/sources.yaml before P6
 **Last updated:** 2026-11-16
 
 ---
@@ -230,10 +230,10 @@ python -c "import pandas as pd, json; f=pd.read_csv('data/fee_labels.csv'); prin
 Expect: stance counts; fee.topic set; confused count > 0 or honest zero with clear message.
 
 ### Acceptance criteria
-- [ ] `data/fee_labels.csv` exists with `review_id, stance, fee_topic`
-- [ ] Identified fee issue comes from confused counts, not assumption
-- [ ] Agent asked user to fill `config/sources.yaml` and did not guess URLs
-- [ ] Commit `phase 4: fee confusion detection`
+- [x] `data/fee_labels.csv` exists with `review_id, stance, fee_topic`
+- [x] Identified fee issue comes from confused counts, not assumption
+- [x] Agent asked user to fill `config/sources.yaml` and did not guess URLs
+- [x] Commit `phase 4: fee confusion detection`
 
 ### USER STEPS (after P4 code works)
 1. Read ~20 reviews labelled `confused` yourself.

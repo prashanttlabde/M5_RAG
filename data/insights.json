@@ -93,11 +93,11 @@
     "low_star": 70
   },
   "fee": {
-    "topic": "",
-    "confused": 0,
-    "complaint_only": 0,
+    "topic": "billing_issues",
+    "confused": 47,
+    "complaint_only": 92,
     "praise": 0,
-    "unrelated": 0,
-    "money_reviews": 0
+    "unrelated": 33,
+    "money_reviews": 172
   }
 }

@@ -71,3 +71,25 @@ def test_saved_quotes_are_real_review_text():
     for q in saved["quotes"]:
         assert q["excerpt"] in full.loc[q["review_id"], "text"]
         assert len(q["excerpt"].split()) <= 25
+
+
+def test_fee_issue_is_topic_with_most_confused():
+    from src.analyze.fee import count_fee
+
+    labels = pd.DataFrame(
+        {
+            "review_id": list("abcdef"),
+            "stance": ["confused", "confused", "confused", "complaint_only", "complaint_only", "praise"],
+            "fee_topic": ["gst", "unexpected_charge", "unexpected_charge", "too_pricey", "too_pricey", "gst"],
+        }
+    )
+    fee = count_fee(labels)
+    assert fee["topic"] == "unexpected_charge"  # most confused, not most complaints
+    assert fee["confused"] == 3 and fee["complaint_only"] == 2 and fee["money_reviews"] == 6
+
+
+def test_fee_zero_confused_gives_empty_topic():
+    from src.analyze.fee import count_fee
+
+    labels = pd.DataFrame({"review_id": ["a"], "stance": ["complaint_only"], "fee_topic": ["other"]})
+    assert count_fee(labels)["topic"] == ""
