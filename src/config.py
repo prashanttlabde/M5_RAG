@@ -77,3 +77,11 @@ def get_approver_password() -> str | None:
 def get_demo_mode() -> bool:
     raw = (_get_env("DEMO_MODE", "false") or "false").strip().lower()
     return raw in {"1", "true", "yes", "on"}
+
+
+def get_product_config() -> dict:
+    """Load config/product.yaml (ranking rule, keyword lists, etc.)."""
+    import yaml
+
+    with PRODUCT_YAML.open(encoding="utf-8") as fh:
+        return yaml.safe_load(fh) or {}

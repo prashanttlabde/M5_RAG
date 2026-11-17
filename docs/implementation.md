@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P2 complete — ready for P3
+**Status:** P3 complete — ready for P4
 **Last updated:** 2026-11-16
 
 ---
@@ -194,10 +194,10 @@ pytest tests/ -k recompute -q
 Expect: ranking rule string present; exactly 3 top themes; 3 quotes with review_ids; voice_tag counts present.
 
 ### Acceptance criteria
-- [ ] `data/insights.json` matches schema; all counts recomputable
-- [ ] Top 3 ranked by low-star rule written before results
-- [ ] 3 quotes substring-verified against CSV
-- [ ] Commit `phase 3: counting ranking quotes trends`
+- [x] `data/insights.json` matches schema; all counts recomputable
+- [x] Top 3 ranked by low-star rule written before results
+- [x] 3 quotes substring-verified against CSV
+- [x] Commit `phase 3: counting ranking quotes trends`
 
 ### What I should learn here
 Ranking by unhappy reviews surfaces pain, not praise volume. Verbatim quotes are evidence; paraphrases are not.

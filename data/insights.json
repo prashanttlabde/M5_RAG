@@ -1,0 +1,103 @@
+{
+  "window": {
+    "start": "2026-08-24",
+    "end": "2026-11-15",
+    "weeks": 12,
+    "review_count": 2377
+  },
+  "themes": [
+    {
+      "theme_id": "t1",
+      "name": "Performance",
+      "total": 450,
+      "low_star": 361,
+      "low_star_share": 0.8022
+    },
+    {
+      "theme_id": "t2",
+      "name": "Limits & Paywall",
+      "total": 531,
+      "low_star": 411,
+      "low_star_share": 0.774
+    },
+    {
+      "theme_id": "t3",
+      "name": "Accuracy",
+      "total": 566,
+      "low_star": 463,
+      "low_star_share": 0.818
+    },
+    {
+      "theme_id": "t4",
+      "name": "Education Value",
+      "total": 353,
+      "low_star": 157,
+      "low_star_share": 0.4448
+    },
+    {
+      "theme_id": "t5",
+      "name": "UI/UX",
+      "total": 477,
+      "low_star": 329,
+      "low_star_share": 0.6897
+    }
+  ],
+  "top3": [
+    "t3",
+    "t2",
+    "t1"
+  ],
+  "ranking_rule": "low_star desc, then low_star_share desc, then name",
+  "quotes": [
+    {
+      "theme_id": "t3",
+      "review_id": "0c0aab82-cf92-4695-9092-a12cc2ee096b",
+      "excerpt": "awful, gives wrong answers much more often than right answers, contradicts itself all the time.",
+      "rating": 1,
+      "date": "2026-09-06"
+    },
+    {
+      "theme_id": "t2",
+      "review_id": "02dbab6a-8563-4485-a89c-0feaa058429c",
+      "excerpt": "They keep making the free version dumber with every update, and now hit limit 5x faster,it's terrible and completely useless.",
+      "rating": 1,
+      "date": "2026-10-04"
+    },
+    {
+      "theme_id": "t1",
+      "review_id": "0f85e6ec-02ed-4f48-849a-b296aa353944",
+      "excerpt": "ChatGPT is even worse than before, the responds take one day or it never happens, the response button is still laggy.",
+      "rating": 2,
+      "date": "2026-11-08"
+    }
+  ],
+  "trend": [
+    {
+      "theme_id": "t3",
+      "prev4": 190,
+      "last4": 189
+    },
+    {
+      "theme_id": "t2",
+      "prev4": 199,
+      "last4": 160
+    },
+    {
+      "theme_id": "t1",
+      "prev4": 173,
+      "last4": 135
+    }
+  ],
+  "voice_tag": {
+    "count": 86,
+    "low_star": 70
+  },
+  "fee": {
+    "topic": "",
+    "confused": 0,
+    "complaint_only": 0,
+    "praise": 0,
+    "unrelated": 0,
+    "money_reviews": 0
+  }
+}
