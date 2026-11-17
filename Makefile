@@ -20,7 +20,7 @@ write:
 	PYTHONPATH=. $(PYTHON) -m src.writer
 
 rag:
-	@echo "not implemented (phase P6)"
+	PYTHONPATH=. $(PYTHON) -m src.rag
 
 checks:
 	@echo "not implemented (phase P9)"

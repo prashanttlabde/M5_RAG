@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P5 complete — ready for P6 (sources.yaml needs source_id/title fields)
+**Status:** P6 complete — ready for P7 (user must build the n8n MCP server first)
 **Last updated:** 2026-11-16
 
 ---
@@ -312,10 +312,10 @@ wc -l data/chunks.jsonl
 Expect: ≤6 bullets; 2 links; Last checked date; chunks file non-empty.
 
 ### Acceptance criteria
-- [ ] Sources fetched only from `sources.yaml`
-- [ ] Explainer ≤6 bullets, 2 links, Last checked present
-- [ ] Validators + fact-check run; status recorded if needs_human_review
-- [ ] Commit `phase 6: fee explainer rag`
+- [x] Sources fetched only from `sources.yaml`
+- [x] Explainer ≤6 bullets, 2 links, Last checked present
+- [x] Validators + fact-check run; status recorded if needs_human_review
+- [x] Commit `phase 6: fee explainer rag`
 
 ### What I should learn here
 RAG here means “retrieve official text, then write only from that.” Fact-checking each bullet against one chunk is context engineering for trust.

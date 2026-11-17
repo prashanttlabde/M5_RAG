@@ -29,6 +29,7 @@ CHUNKS_JSONL: Path = DATA_DIR / "chunks.jsonl"
 
 WEEKLY_PULSE_MD: Path = OUTPUTS_DIR / "weekly_pulse.md"
 FEE_EXPLAINER_MD: Path = OUTPUTS_DIR / "fee_explainer.md"
+FEE_EXPLAINER_JSON: Path = OUTPUTS_DIR / "fee_explainer.json"
 APPROVAL_PAYLOAD_JSON: Path = OUTPUTS_DIR / "approval_payload.json"
 EMAIL_DRAFT_TXT: Path = OUTPUTS_DIR / "email_draft.txt"
 PUBLISH_LOG_JSONL: Path = OUTPUTS_DIR / "publish_log.jsonl"

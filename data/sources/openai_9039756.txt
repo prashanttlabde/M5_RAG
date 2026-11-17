@@ -1,0 +1,28 @@
+Overview
+ChatGPT and the API platform have separate billing systems. Manage each product’s charges and billing history in its own settings.
+API credits, including promotional API credits, are associated with an API organization. They are separate from your ChatGPT subscription and the credit balances used within ChatGPT.
+Manage billing for ChatGPT on the web
+For Free, Go, Plus, or Pro accounts, open ChatGPT billing settings, or:
+- Sign in to ChatGPT on the web.
+- Open Settings.
+- Select Billing.
+If you subscribed on the web, use the options in Billing to manage your subscription, payment methods, and available billing history.
+If billing or payment controls are missing, sign in to the same ChatGPT account in a different browser, then try opening your billing settings again.
+Manage ChatGPT Business, Enterprise, or Edu billing
+For ChatGPT Business, workspace owners and admins can open Workspace settings > Billing. Only workspace owners can update billing information and payment methods or view invoices.
+For eligible ChatGPT Enterprise and Edu workspaces, authorized workspace owners and admins can select their workspace in the Global Admin Console, then open Billing. Available controls depend on your plan and permissions. For eligible Enterprise and Edu workspaces, owners can view issued invoices in Billing > Invoices. Other roles can view invoices if your workspace is configured to allow it.
+Manage API billing
+API organization owners can view billing details in the API billing overview.
+Eligible subscriptions may offer promotional credits for a linked API organization; ChatGPT and API billing remain separate. See API credits benefit for eligible ChatGPT subscriptions.
+Set up API billing separately from ChatGPT
+To start paid API usage, add a payment method in your API account billing settings. API usage is billed separately from your ChatGPT subscription.
+API charges depend on the models and features you use, including token usage and any applicable tool or storage charges. Check the API pricing page for current rates.
+For prepaid credit purchases and automatic recharges, see: Setting up prepaid billing.
+Check subscriptions on more than one platform
+ChatGPT subscriptions can be billed through the web, Apple App Store, or Google Play Store. Subscriptions on more than one platform may result in separate charges.
+To identify which platform manages your subscription and avoid duplicate charges, see: Managing your ChatGPT subscription across devices.
+Get help with a billing issue
+Browse the billing help collection for guidance on your issue.
+If you can’t identify or resolve the problem, contact OpenAI Support using the chat widget in the Help Center.
+Find more account-management help
+For other account tasks, see the Account Management collection.

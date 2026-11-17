@@ -61,6 +61,12 @@ def _parse_json(raw: str) -> Any:
     return json.loads(text)
 
 
+def _limit_detail(exc: Exception) -> str:
+    """The usage/limit/wait figures from Groq's message (contains no secrets)."""
+    m = re.search(r"Limit \d+, Used \d+, Requested \d+\. Please try again in [\w.]+", str(exc))
+    return m.group(0) if m else ""
+
+
 def _groq_complete(model: str, prompt: str) -> str:
     """One raw Groq call in JSON mode. Retries with backoff on 429."""
     api_key = config.get_groq_api_key()
@@ -99,7 +105,8 @@ def _groq_complete(model: str, prompt: str) -> str:
         except (RateLimitError, APITimeoutError, APIConnectionError) as exc:
             if isinstance(exc, RateLimitError) and "per day" in str(exc):
                 raise LLMError(
-                    "Groq daily token limit reached for this model. Wait, or change LLM_MODEL in .env."
+                    "Groq daily token limit reached for this model. Wait, or change LLM_MODEL in .env. "
+                    + _limit_detail(exc)
                 ) from exc
             if attempt == MAX_RATE_LIMIT_RETRIES:
                 raise LLMError("Groq rate limit/timeout persisted after retries.") from exc

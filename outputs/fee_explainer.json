@@ -1,0 +1,44 @@
+{
+  "status": "ok",
+  "topic": "billing_issues",
+  "query": "billing issues subscription plus payment account paid support days service",
+  "bullets": [
+    {
+      "text": "Credit card payments can be declined due to bank, card, authentication, or regional issues. [openai_3943089]",
+      "chunk_id": "openai_3943089-10"
+    },
+    {
+      "text": "Updating your API payment method may create a temporary $5 authorization hold. [openai_3943089]",
+      "chunk_id": "openai_3943089-10"
+    },
+    {
+      "text": "Payment failures can occur because of issues with automatic recharges, balance limits, or expired credits. [openai_3943089]",
+      "chunk_id": "openai_3943089-10"
+    },
+    {
+      "text": "You can cancel a ChatGPT subscription purchased on the web, Apple App Store, or Google Play through the appropriate cancellation process. [openai_3943089]",
+      "chunk_id": "openai_3943089-4"
+    },
+    {
+      "text": "OpenAI does not support annual billing or advance payment for ChatGPT Go, Plus, or Pro subscriptions. [openai_11989085]",
+      "chunk_id": "openai_11989085-6"
+    },
+    {
+      "text": "When a credit card is declined, checking your bank, card details, authentication, and region can help resolve the issue. [openai_3943089]",
+      "chunk_id": "openai_3943089-10"
+    }
+  ],
+  "links": [
+    {
+      "title": "Billing (OpenAI Help)",
+      "url": "https://help.openai.com/en/collections/3943089-billing"
+    },
+    {
+      "title": "How do i cancel my chatgpt subscription (OpenAI Help)",
+      "url": "https://help.openai.com/en/articles/11989085-how-do-i-cancel-my-chatgpt-subscription"
+    }
+  ],
+  "last_checked": "2026-11-18",
+  "rejected": [],
+  "rewritten_count": 0
+}

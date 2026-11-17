@@ -1,12 +1,21 @@
-https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform%E2%80%8B
-
-https://help.openai.com/en/articles/10421635-flexible-pricing-for-the-enterprise-edu-and-business-plans
-
-https://help.openai.com/en/articles/11989085-how-do-i-cancel-my-chatgpt-subscription
-
-https://help.openai.com/en/collections/3943089-billing
-
-https://support.google.com/googleplay/android-developer/answer/112622?hl=en
-
-https://support.google.com/googleplay/android-developer/answer/16408159?hl=en-AE
-
+# Official sources for the fee explainer. Only these pages may be used (INV-3).
+# Titles are derived from the URL; edit them if you like.
+sources:
+  - source_id: openai_9039756
+    title: "Managing billing for chatgpt and the api platform (OpenAI Help)"
+    url: "https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform"
+  - source_id: openai_10421635
+    title: "Flexible pricing for the enterprise edu and business plans (OpenAI Help)"
+    url: "https://help.openai.com/en/articles/10421635-flexible-pricing-for-the-enterprise-edu-and-business-plans"
+  - source_id: openai_11989085
+    title: "How do i cancel my chatgpt subscription (OpenAI Help)"
+    url: "https://help.openai.com/en/articles/11989085-how-do-i-cancel-my-chatgpt-subscription"
+  - source_id: openai_3943089
+    title: "Billing (OpenAI Help)"
+    url: "https://help.openai.com/en/collections/3943089-billing"
+  - source_id: play_112622
+    title: "Google Play Help article 112622"
+    url: "https://support.google.com/googleplay/android-developer/answer/112622?hl=en"
+  - source_id: play_16408159
+    title: "Google Play Help article 16408159"
+    url: "https://support.google.com/googleplay/android-developer/answer/16408159?hl=en-AE"
