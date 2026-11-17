@@ -11,7 +11,7 @@ install:
 	$(PYTHON) -m pip install -r requirements.txt
 
 collect:
-	@echo "not implemented (phase P1)"
+	PYTHONPATH=. $(PYTHON) -m src.collect.clean
 
 analyze:
 	@echo "not implemented (phase P2/P3/P4)"

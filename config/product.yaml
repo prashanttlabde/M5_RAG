@@ -1,0 +1,90 @@
+# Product under study — written before any ranking results exist.
+app_id: com.openai.chatgpt
+country: in
+lang: en
+weeks: 12
+max_reviews_per_week: 200
+min_review_words: 5
+scrape_batch_size: 200
+scrape_sleep_seconds: 0.5
+
+# ChatGPT India volume is extreme (thousands/day). Per-score strategy:
+# - scores 1–2: paginate until the 12-week cutoff (pain reviews also matter most for ranking)
+# - scores 3–5: capped samples so we do not spend hours walking praise volume
+scrape_scores:
+  1:
+    max_reviews: 40000
+    reach_cutoff: true
+    max_keep_per_week: 250
+  2:
+    max_reviews: 30000
+    reach_cutoff: true
+    max_keep_per_week: 250
+  3:
+    max_reviews: 4000
+    reach_cutoff: false
+    max_keep_per_week: 200
+  4:
+    max_reviews: 3000
+    reach_cutoff: false
+    max_keep_per_week: 150
+  5:
+    max_reviews: 2000
+    reach_cutoff: false
+    max_keep_per_week: 100
+
+# Ranking rule (INV / PRD): written before seeing results.
+# Rank themes by count of 1 and 2 star reviews.
+# Ties: higher share of 1 and 2 star reviews wins, then alphabetical by theme name.
+# Never rank by total volume.
+ranking_rule: "low_star desc, then low_star_share desc, then name"
+
+money_keywords:
+  - charge
+  - charged
+  - gst
+  - tax
+  - renew
+  - renewal
+  - refund
+  - subscription
+  - subscribe
+  - plan
+  - billing
+  - bill
+  - price
+  - priced
+  - payment
+  - paid
+  - pay
+  - fee
+  - rupee
+  - rs
+  - inr
+  - expensive
+  - cheaper
+  - cost
+
+keyword_summary_terms:
+  - charge
+  - GST
+  - tax
+  - renew
+  - refund
+  - subscription
+  - plan
+  - billing
+  - price
+
+voice_keywords:
+  - voice
+  - speak
+  - speaking
+  - speech
+  - microphone
+  - mic
+  - audio
+  - talk
+  - talking
+  - whisper
+  - dictation

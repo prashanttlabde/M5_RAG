@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P0 complete — ready for P1  
+**Status:** P1 complete — ready for P2  
 **Last updated:** 2026-11-16
 
 ---
@@ -117,10 +117,10 @@ python -c "import pandas as pd; f=pd.read_csv('data/reviews_full.csv'); b=pd.rea
 Expect: columns `review_id, date, week_start, rating, text`; 8–12 weeks; max per week ≤ 200; keyword table printed.
 
 ### Acceptance criteria
-- [ ] `data/reviews_full.csv` and `data/reviews_balanced.csv` exist with required columns
-- [ ] 8–12 distinct weeks; exact review counts known
-- [ ] No reviewer name column; keyword summary produced
-- [ ] Commit `phase 1: review collection`
+- [x] `data/reviews_full.csv` and `data/reviews_balanced.csv` exist with required columns
+- [x] 8–12 distinct weeks; exact review counts known
+- [x] No reviewer name column; keyword summary produced
+- [x] Commit `phase 1: review collection`
 
 ### What I should learn here
 Collection quality decides everything downstream. Balancing weeks stops one viral week from drowning the rest of the signal.

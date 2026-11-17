@@ -18,6 +18,9 @@ __pycache__/
 data/cache/*
 !data/cache/.gitkeep
 
+# Intermediate scrape file (cleaned CSVs are the source of truth)
+data/reviews_raw.csv
+
 # OS / editor
 .DS_Store
 .idea/
