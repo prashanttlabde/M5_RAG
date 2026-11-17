@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P6 complete — ready for P7 (user must build the n8n MCP server first)
+**Status:** P7 complete — ready for P8
 **Last updated:** 2026-11-16
 
 ---
@@ -360,10 +360,10 @@ python -m src.mcp_client.test_connection
 Expect: lists exactly three tools; no name contains “send”.
 
 ### Acceptance criteria
-- [ ] USER STEPS completed by human; `.env` has URL and token (not in Git)
-- [ ] Connection test passes with exactly three tools
-- [ ] Fail-fast if any tool name contains “send”
-- [ ] Commit `phase 7: mcp client and connection test`
+- [x] USER STEPS completed by human; `.env` has URL and token (not in Git)
+- [x] Connection test passes with exactly three tools
+- [x] Fail-fast if any tool name contains “send”
+- [x] Commit `phase 7: mcp client and connection test`
 
 ### What I should learn here
 MCP is a standard way for apps to call tools. Safety comes from which tools exist — if Send is never built, it cannot be called.
