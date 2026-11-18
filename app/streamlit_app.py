@@ -8,7 +8,9 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+# Streamlit Cloud runs from the repo but does not put the repo root on sys.path: add it (for `src`) and app/ (for `ui`).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import shell
 import streamlit as st

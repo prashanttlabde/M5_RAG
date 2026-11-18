@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # make `src` importable on hosts that do not set PYTHONPATH
 
 import pandas as pd
 import streamlit as st

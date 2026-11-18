@@ -141,3 +141,20 @@ def test_app_star_toggle(monkeypatch):
     at = _entry(monkeypatch)
     at.button(key="tb_star").click().run()
     assert at.session_state["starred"] is True
+
+
+def test_app_starts_in_a_clean_process_without_pythonpath(tmp_path):
+    """Regression: on Streamlit Cloud the repo root is not on sys.path, so the entry file must add it itself."""
+    import os
+    import subprocess
+    import sys
+
+    code = (
+        "from streamlit.testing.v1 import AppTest;"
+        f"at = AppTest.from_file({str(APP / 'streamlit_app.py')!r}, default_timeout=60).run();"
+        "assert not at.exception, [e.value for e in at.exception];"
+        "print('OK')"
+    )
+    env = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"} | {"DEMO_MODE": "true"}
+    out = subprocess.run([sys.executable, "-c", code], cwd=tmp_path, env=env, capture_output=True, text=True, check=False)
+    assert "OK" in out.stdout, out.stderr[-800:]
