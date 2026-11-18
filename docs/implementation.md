@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P9 complete — ready for P10
+**Status:** P10 complete — ready for P11 (deployment, user steps)
 **Last updated:** 2026-11-16
 
 ---
@@ -472,10 +472,10 @@ make app
 Expect: all seven pages load; Approve uses shared publish path.
 
 ### Acceptance criteria
-- [ ] All listed pages exist and load artifacts
-- [ ] DEMO_MODE respected; Approve password-gated
-- [ ] Design direction followed; footer present
-- [ ] Commit `phase 10: streamlit app`
+- [x] All listed pages exist and load artifacts
+- [x] DEMO_MODE respected; Approve password-gated
+- [x] Design direction followed; footer present
+- [x] Commit `phase 10: streamlit app`
 
 ### What I should learn here
 The UI is a window onto artifacts, not a place where numbers are typed. Same publish code in CLI and UI prevents “demo-only” safety gaps.

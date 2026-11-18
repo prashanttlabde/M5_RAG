@@ -26,7 +26,7 @@ checks:
 	PYTHONPATH=. $(PYTHON) -m src.checks
 
 app:
-	@echo "not implemented (phase P10)"
+	PYTHONPATH=. streamlit run app/streamlit_app.py
 
 test:
 	PYTHONPATH=. $(PYTEST) tests/ -q
