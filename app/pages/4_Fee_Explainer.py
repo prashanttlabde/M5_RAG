@@ -32,9 +32,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.subheader("What the official pages say")
-for b in meta["bullets"]:
+for n, b in enumerate(meta["bullets"]):
     text = b["text"]
-    with st.container(border=True):
+    with ui.card_container(f"bullet{n}"):
         st.markdown(text)
         chunk = chunks.get(b["chunk_id"])
         if chunk:

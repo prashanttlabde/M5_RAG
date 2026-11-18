@@ -1,6 +1,6 @@
 # Checks report
 
-Generated 2026-11-18T10:18:17. Rule-based checks only; no AI was used.
+Generated 2026-11-18T11:14:42. Rule-based checks only; no AI was used.
 
 **30 of 30 checks passed.**
 
@@ -43,7 +43,7 @@ Generated 2026-11-18T10:18:17. Rule-based checks only; no AI was used.
 ## Safety
 
 - PASS: .env is gitignored and not tracked (INV-7). tracked: []; ignored: True
-- PASS: No API keys or tokens in any tracked file (INV-7). 96 tracked files scanned
+- PASS: No API keys or tokens in any tracked file (INV-7). 97 tracked files scanned
 - PASS: No personal data (email or phone) in the pulse, explainer, payload or email draft (INV-6). none found
 - PASS: No send tool anywhere: workflow export, code and publish log (INV-5). no send tool in the workflow, code or log
 - PASS: Approval payload: exactly six Doc fields and the hash recomputes (INV-4). fields ok: True; hash matches: True

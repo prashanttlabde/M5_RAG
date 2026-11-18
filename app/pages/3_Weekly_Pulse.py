@@ -20,6 +20,6 @@ st.markdown(
     f'{ui.badge("ok" if words <= 250 else "fail", "Within the 250 word limit" if words <= 250 else "Over the 250 word limit")} <span class="sub">&nbsp;{words} words</span>',
     unsafe_allow_html=True,
 )
-with st.container(border=True):
+with ui.card_container("pulse"):
     st.markdown(text)
 st.caption("Every number is inserted by code; the language model only wrote the short sentences.")
