@@ -43,3 +43,11 @@ def test_gitignore_lists_env_and_cache() -> None:
     text = (ROOT / ".gitignore").read_text(encoding="utf-8")
     assert ".env" in text
     assert "data/cache/" in text or "data/cache" in text
+
+
+def test_redact_pii_removes_emails_and_phone_like_numbers():
+    from src.collect.clean import redact_pii
+
+    assert redact_pii("write to a.b@example.com now") == "write to [email] now"
+    assert redact_pii("rate -99999999999 stars") == "rate -[number] stars"
+    assert redact_pii("I paid Rs 399 for 3 months") == "I paid Rs 399 for 3 months"

@@ -23,7 +23,7 @@ rag:
 	PYTHONPATH=. $(PYTHON) -m src.rag
 
 checks:
-	@echo "not implemented (phase P9)"
+	PYTHONPATH=. $(PYTHON) -m src.checks
 
 app:
 	@echo "not implemented (phase P10)"

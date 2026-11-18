@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -20,6 +21,14 @@ from src.logging_config import setup_logging
 logger = setup_logging()
 
 KEYWORD_SUMMARY_CSV: Path = DATA_DIR / "keyword_summary.csv"
+
+_EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
+_PHONE = re.compile(r"(?<!\d)\+?\d(?:[\s().-]?\d){9,}(?!\d)")
+
+
+def redact_pii(text: str) -> str:
+    """INV-6: replace email addresses and phone-like digit runs (10+ digits) with placeholders."""
+    return _PHONE.sub("[number]", _EMAIL.sub("[email]", str(text)))
 
 
 def _load_product() -> dict:
@@ -68,7 +77,7 @@ def clean_and_balance(raw_path: Path | None = None) -> tuple[Path, Path]:
     if drop_pii:
         df = df.drop(columns=drop_pii)
 
-    df["text"] = df["text"].fillna("").astype(str).str.strip()
+    df["text"] = df["text"].fillna("").astype(str).str.strip().map(redact_pii)
     df = df[df["text"] != ""]
     df = df[df["text"].map(_word_count) >= min_words]
     df = df.drop_duplicates(subset=["review_id"], keep="first")

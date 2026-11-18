@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P8 complete — ready for P9
+**Status:** P9 complete — ready for P10
 **Last updated:** 2026-11-16
 
 ---
@@ -434,9 +434,9 @@ pytest tests/ -k bad_input -q
 Expect: report with PASS/FAIL lines; bad-input tests exercise failures safely.
 
 ### Acceptance criteria
-- [ ] `outputs/checks_report.md` generated without LLM
-- [ ] Bad-input cases covered
-- [ ] Commit `phase 9: checks script`
+- [x] `outputs/checks_report.md` generated without LLM
+- [x] Bad-input cases covered
+- [x] Commit `phase 9: checks script`
 
 ### What I should learn here
 Independent checks are how you prove the pipeline to a grader without trusting the model that wrote the prose.
