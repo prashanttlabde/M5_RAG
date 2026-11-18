@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P10 complete — ready for P11 (deployment, user steps)
+**Status:** P11 complete (live at https://m5-rag.streamlit.app/) — ready for P12
 **Last updated:** 2026-11-16
 
 ---
@@ -513,10 +513,10 @@ architecture.md §13; INV-7
 - Human: Approve page asks for password
 
 ### Acceptance criteria
-- [ ] Repo online without secrets
-- [ ] Streamlit app live with DEMO_MODE=true
-- [ ] Cached artifacts committed for demo
-- [ ] Commit `phase 11: deployment`
+- [x] Repo online without secrets
+- [x] Streamlit app live with DEMO_MODE=true
+- [x] Cached artifacts committed for demo
+- [x] Commit `phase 11: deployment`
 
 ### What I should learn here
 Hosted demos must not call paid/rate-limited APIs live. Secrets belong in the host’s secret store, never in Git.
