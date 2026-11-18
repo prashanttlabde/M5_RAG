@@ -47,9 +47,22 @@ def load_env() -> None:
     _ENV_LOADED = True
 
 
+def _streamlit_secret(name: str) -> str | None:
+    """Fallback for hosted runs: read the value straight from Streamlit's secrets, if any."""
+    try:
+        import streamlit as st
+
+        value = st.secrets.get(name)
+    except Exception:  # noqa: BLE001 - no secrets file / not running under Streamlit
+        return None
+    return str(value) if isinstance(value, (str, int, float, bool)) and str(value) != "" else None
+
+
 def _get_env(name: str, default: str | None = None) -> str | None:
     load_env()
-    value = os.getenv(name, default)
+    value = os.getenv(name)
+    if value is None or value == "":
+        value = _streamlit_secret(name)
     if value is None or value == "":
         return default
     return value
@@ -76,8 +89,9 @@ def get_approver_password() -> str | None:
 
 
 def get_demo_mode() -> bool:
-    raw = (_get_env("DEMO_MODE", "false") or "false").strip().lower()
-    return raw in {"1", "true", "yes", "on"}
+    """Safe by default: demo mode (no run buttons) unless DEMO_MODE is explicitly false/0/no/off."""
+    raw = (_get_env("DEMO_MODE", "true") or "true").strip().lower()
+    return raw not in {"0", "false", "no", "off"}
 
 
 def get_product_config() -> dict:

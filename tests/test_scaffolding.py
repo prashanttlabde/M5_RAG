@@ -51,3 +51,25 @@ def test_redact_pii_removes_emails_and_phone_like_numbers():
     assert redact_pii("write to a.b@example.com now") == "write to [email] now"
     assert redact_pii("rate -99999999999 stars") == "rate -[number] stars"
     assert redact_pii("I paid Rs 399 for 3 months") == "I paid Rs 399 for 3 months"
+
+
+def test_demo_mode_is_on_unless_explicitly_turned_off(monkeypatch):
+    from src import config
+
+    monkeypatch.setattr(config, "_streamlit_secret", lambda name: None)
+    monkeypatch.delenv("DEMO_MODE", raising=False)
+    assert config.get_demo_mode() is True  # unset -> safe demo mode
+    for off in ("false", "FALSE", "0", "no", "off"):
+        monkeypatch.setenv("DEMO_MODE", off)
+        assert config.get_demo_mode() is False
+    monkeypatch.setenv("DEMO_MODE", "true")
+    assert config.get_demo_mode() is True
+
+
+def test_hosted_secrets_are_used_when_the_environment_is_empty(monkeypatch):
+    from src import config
+
+    monkeypatch.delenv("LLM_MODEL", raising=False)
+    monkeypatch.setattr(config, "_ENV_LOADED", True)
+    monkeypatch.setattr(config, "_streamlit_secret", lambda name: "from-secrets" if name == "LLM_MODEL" else None)
+    assert config.get_llm_model() == "from-secrets"
