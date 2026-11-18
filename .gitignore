@@ -18,6 +18,9 @@ __pycache__/
 data/cache/*
 !data/cache/.gitkeep
 
+# Raw official page text (re-downloadable with `make rag`; chunks.jsonl keeps the cited passages)
+data/sources/*.txt
+
 # Intermediate scrape file (cleaned CSVs are the source of truth)
 data/reviews_raw.csv
 
