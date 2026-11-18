@@ -1,0 +1,12 @@
+{"ts": "2026-11-18T01:49:52", "state": "APPROVED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": null, "ok": true, "detail": ""}
+{"ts": "2026-11-18T01:49:55", "state": "DOC_CHECKED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "read_doc", "ok": true, "detail": ""}
+{"ts": "2026-11-18T01:49:55", "state": "DOC_WRITTEN", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "append_to_doc", "ok": true, "detail": ""}
+{"ts": "2026-11-18T01:49:56", "state": "DOC_VERIFIED_READ", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "read_doc", "ok": true, "detail": ""}
+{"ts": "2026-11-18T01:49:56", "state": "FAILED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "read_doc", "ok": false, "detail": "entry not found after write"}
+{"ts": "2026-11-18T09:14:00", "state": "APPROVED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": null, "ok": true, "detail": ""}
+{"ts": "2026-11-18T09:14:02", "state": "DOC_CHECKED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "read_doc", "ok": true, "detail": ""}
+{"ts": "2026-11-18T09:14:03", "state": "DOC_WRITTEN", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "append_to_doc", "ok": true, "detail": ""}
+{"ts": "2026-11-18T09:14:04", "state": "DOC_VERIFIED_READ", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "read_doc", "ok": true, "detail": ""}
+{"ts": "2026-11-18T09:14:04", "state": "DOC_VERIFIED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": null, "ok": true, "detail": ""}
+{"ts": "2026-11-18T09:14:05", "state": "EMAIL_DRAFTED", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": "create_email_draft", "ok": true, "detail": ""}
+{"ts": "2026-11-18T09:14:05", "state": "DONE", "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287", "tool": null, "ok": true, "detail": ""}

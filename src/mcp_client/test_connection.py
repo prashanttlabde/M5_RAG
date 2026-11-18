@@ -10,24 +10,25 @@ import sys
 
 from src.errors import ConfigError, PublishError
 from src.logging_config import setup_logging
-from src.mcp_client.client import check_tool_names, list_tool_names, open_session
+from src.mcp_client.client import check_tools, list_tools, open_session
 
 
-async def _run() -> list[str]:
+async def _run() -> list:
     async with open_session() as session:
-        return await list_tool_names(session)
+        return await list_tools(session)
 
 
 def main() -> int:
     setup_logging()
     try:
-        names = asyncio.run(_run())
-        print("tools:", sorted(names))
-        check_tool_names(names)
+        tools = asyncio.run(_run())
+        for t in sorted(tools, key=lambda t: t.name):
+            print(f"tool: {t.name} | {t.description}")
+        check_tools(tools)
     except (ConfigError, PublishError) as exc:
         print("FAIL:", exc)
         return 1
-    print("OK: exactly 3 tools, none contains 'send'.")
+    print("OK: exactly 3 tools, no name or description mentions 'send'.")
     return 0
 
 

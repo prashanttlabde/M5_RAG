@@ -1,0 +1,29 @@
+{
+  "doc_entry": {
+    "date": "2026-11-18",
+    "top_themes": [
+      "Accuracy",
+      "Limits & Paywall",
+      "Performance"
+    ],
+    "weekly_pulse": "# Weekly Product Pulse: ChatGPT Play Store (India), week ending 2026-11-15\nBased on 2377 reviews over 12 weeks.\n\n## Summary of top themes\n1. **Accuracy**: 463 of 566 reviews were 1-2 star (82%); last 4 weeks 189 vs 190 before. Accuracy issues rise as answers become more incorrect and contradictory.\n2. **Limits & Paywall**: 411 of 531 reviews were 1-2 star (77%); last 4 weeks 160 vs 199 before. Limits and paywall complaints grow as free usage shrinks.\n3. **Performance**: 361 of 450 reviews were 1-2 star (80%); last 4 weeks 135 vs 173 before. Performance degrades with slower responses, crashes, and glitchy scrolling.\n\n## Supporting user quotes\n1. \"awful, gives wrong answers much more often than right answers, contradicts itself all the time.\" (1 star, Accuracy)\n2. \"They keep making the free version dumber with every update, and now hit limit 5x faster,it's terrible and completely useless.\" (1 star, Limits & Paywall)\n3. \"ChatGPT is even worse than before, the responds take one day or it never happens, the response button is still laggy.\" (2 star, Performance)\n\n## Key observation\nThese problems together worsen user trust, especially when billing confusion adds frustration.\nFee confusion: 21 of 172 money-related reviews, mostly about billing issues.\n\n## 3 action ideas\n1. Improve answer verification to reduce hallucinations and contradictions. (Quote 1)\n2. Rebalance free limits and clarify upgrade benefits to ease frustration. (Quote 2)\n3. Optimize app stability and transparently explain billing to prevent confusion. (Quote 3)\n",
+    "identified_fee_issue": "billing issues",
+    "explanation_bullets": [
+      "Credit card payments can be declined due to bank, card, authentication, or regional issues. [openai_3943089]",
+      "Updating your API payment method may create a temporary $5 authorization hold. [openai_3943089]",
+      "Payment failures can occur because of issues with automatic recharges, balance limits, or expired credits. [openai_3943089]",
+      "You can cancel a ChatGPT subscription purchased on the web, Apple App Store, or Google Play through the appropriate cancellation process. [openai_3943089]",
+      "OpenAI does not support annual billing or advance payment for ChatGPT Go, Plus, or Pro subscriptions. [openai_11989085]",
+      "When a credit card is declined, checking your bank, card details, authentication, and region can help resolve the issue. [openai_3943089]"
+    ],
+    "source_links": [
+      "https://help.openai.com/en/collections/3943089-billing",
+      "https://help.openai.com/en/articles/11989085-how-do-i-cancel-my-chatgpt-subscription"
+    ]
+  },
+  "email_subject": "Weekly Product Pulse + Customer Clarification - billing issues - week ending 2026-11-15",
+  "email_body": "# Weekly Product Pulse: ChatGPT Play Store (India), week ending 2026-11-15\nBased on 2377 reviews over 12 weeks.\n\n## Summary of top themes\n1. **Accuracy**: 463 of 566 reviews were 1-2 star (82%); last 4 weeks 189 vs 190 before. Accuracy issues rise as answers become more incorrect and contradictory.\n2. **Limits & Paywall**: 411 of 531 reviews were 1-2 star (77%); last 4 weeks 160 vs 199 before. Limits and paywall complaints grow as free usage shrinks.\n3. **Performance**: 361 of 450 reviews were 1-2 star (80%); last 4 weeks 135 vs 173 before. Performance degrades with slower responses, crashes, and glitchy scrolling.\n\n## Supporting user quotes\n1. \"awful, gives wrong answers much more often than right answers, contradicts itself all the time.\" (1 star, Accuracy)\n2. \"They keep making the free version dumber with every update, and now hit limit 5x faster,it's terrible and completely useless.\" (1 star, Limits & Paywall)\n3. \"ChatGPT is even worse than before, the responds take one day or it never happens, the response button is still laggy.\" (2 star, Performance)\n\n## Key observation\nThese problems together worsen user trust, especially when billing confusion adds frustration.\nFee confusion: 21 of 172 money-related reviews, mostly about billing issues.\n\n## 3 action ideas\n1. Improve answer verification to reduce hallucinations and contradictions. (Quote 1)\n2. Rebalance free limits and clarify upgrade benefits to ease frustration. (Quote 2)\n3. Optimize app stability and transparently explain billing to prevent confusion. (Quote 3)\n\n---\nCustomer support snippet: billing issues\n\n- Credit card payments can be declined due to bank, card, authentication, or regional issues. [openai_3943089]\n- Updating your API payment method may create a temporary $5 authorization hold. [openai_3943089]\n- Payment failures can occur because of issues with automatic recharges, balance limits, or expired credits. [openai_3943089]\n- You can cancel a ChatGPT subscription purchased on the web, Apple App Store, or Google Play through the appropriate cancellation process. [openai_3943089]\n- OpenAI does not support annual billing or advance payment for ChatGPT Go, Plus, or Pro subscriptions. [openai_11989085]\n- When a credit card is declined, checking your bank, card details, authentication, and region can help resolve the issue. [openai_3943089]\n\nOfficial sources:\n- Billing (OpenAI Help): https://help.openai.com/en/collections/3943089-billing\n- How do i cancel my chatgpt subscription (OpenAI Help): https://help.openai.com/en/articles/11989085-how-do-i-cancel-my-chatgpt-subscription\nLast checked: 2026-11-18\n",
+  "hash": "78036fa642d771405974a53f53423c6d61eb3b062aad6d8ad9dc600dd6309287",
+  "week_end": "2026-11-15",
+  "explainer_status": "ok"
+}

@@ -2,7 +2,7 @@
 
 **Based on:** architecture.md and PRD.md  
 **Purpose:** Step-by-step execution plan so each phase is built, verified, and committed before the next starts.  
-**Status:** P7 complete — ready for P8
+**Status:** P8 complete — ready for P9
 **Last updated:** 2026-11-16
 
 ---
@@ -397,10 +397,10 @@ python -c "from src.approval.payload import build_payload; p=build_payload(); pr
 Expect: six Doc fields; hash shown; reject writes nothing; approve creates draft not send.
 
 ### Acceptance criteria
-- [ ] Payload has six Doc fields + email subject/body + hash
-- [ ] APPROVE required; hash re-checked before writes
-- [ ] Fixed MCP call order; publish_log.jsonl updated per step
-- [ ] Commit `phase 8: approval gate and publishing`
+- [x] Payload has six Doc fields + email subject/body + hash
+- [x] APPROVE required; hash re-checked before writes
+- [x] Fixed MCP call order; publish_log.jsonl updated per step
+- [x] Commit `phase 8: approval gate and publishing`
 
 ### What I should learn here
 Approval gating means the human signs the exact bytes that will be written. Hashing detects silent changes between “I approved” and “write now”.

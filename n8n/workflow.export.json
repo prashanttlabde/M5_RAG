@@ -1,0 +1,151 @@
+{
+  "name": "N8N_MCP_SERVER",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "bearerAuth",
+        "path": "9777bbf5-2622-45e6-971b-61c46e1b6f3e"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4cb9bb9e-7af4-43d7-a2b9-e0a56fe03240",
+      "name": "MCP Server Trigger",
+      "webhookId": "<redacted>",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "<redacted>",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "<YOUR_GOOGLE_DOC_URL>",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "object": "=text",
+              "action": "=insert",
+              "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields0_Old_Text', ``, 'string') }}",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        208
+      ],
+      "id": "7cbaf3d0-00cf-49a1-babf-f4fbe1d101f3",
+      "name": "append_to_doc",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "<redacted>",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        304,
+        208
+      ],
+      "id": "22cab917-bb47-4117-8f57-0170b7e6afc0",
+      "name": "create_email_draft",
+      "webhookId": "<redacted>",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "<redacted>",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "<YOUR_GOOGLE_DOC_URL>"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        128,
+        208
+      ],
+      "id": "f75d2d60-5052-47d3-b3bf-18246d3933a6",
+      "name": "read_doc",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "<redacted>",
+          "name": "Google Docs account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "append_to_doc": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create_email_draft": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "read_doc": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "06cef604-e1d9-46ad-9f61-b3b548ccf892",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "<redacted>"
+  },
+  "nodeGroups": [],
+  "id": "AwDZcFY73pcOfNoA",
+  "tags": []
+}

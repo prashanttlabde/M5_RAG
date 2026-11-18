@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import logging
 from collections.abc import AsyncIterator
-from contextlib import asynccontextmanager
+from contextlib import AsyncExitStack, asynccontextmanager
 
 from mcp import ClientSession
 from mcp.client.sse import sse_client
@@ -88,7 +88,10 @@ async def _sse(url: str, headers: dict[str, str]) -> AsyncIterator[ClientSession
 
 @asynccontextmanager
 async def open_session(transport: str = "auto") -> AsyncIterator[ClientSession]:
-    """Open an initialised MCP session. transport: 'auto' (streamable HTTP, then SSE), 'http' or 'sse'."""
+    """Open an initialised MCP session. transport: 'auto' (streamable HTTP, then SSE), 'http' or 'sse'.
+
+    Only *connection* errors trigger the fallback; errors raised by the caller's own code pass through.
+    """
     url, headers = _settings()
     if transport == "sse":
         order = [_sse]
@@ -98,19 +101,78 @@ async def open_session(transport: str = "auto") -> AsyncIterator[ClientSession]:
         order = [_streamable, _sse]
     last: BaseException | None = None
     for opener in order:
+        stack = AsyncExitStack()
         try:
-            async with opener(url, headers) as session:
-                yield session
-            return
+            session = await stack.enter_async_context(opener(url, headers))
         except Exception as exc:  # noqa: BLE001 - report and try the next transport
             last = exc
             log.warning("MCP transport %s failed: %s", opener.__name__.strip("_"), type(exc).__name__)
+            try:
+                await stack.aclose()
+            except Exception:  # noqa: BLE001, S110 - best-effort cleanup of a failed connection
+                pass
+            continue
+        try:
+            yield session
+        finally:
+            await stack.aclose()
+        return
     raise PublishError(explain_error(last) if last else "MCP connection failed.") from last
 
 
+async def list_tools(session: ClientSession) -> list:
+    return list((await session.list_tools()).tools)
+
+
 async def list_tool_names(session: ClientSession) -> list[str]:
-    result = await session.list_tools()
-    return [t.name for t in result.tools]
+    return [t.name for t in await list_tools(session)]
+
+
+def check_tools(tools: list) -> None:
+    """INV-5: names AND descriptions must not mention 'send'; the set must be exactly the 3 safe tools."""
+    check_tool_names([t.name for t in tools])
+    for t in tools:
+        desc = getattr(t, "description", "") or ""
+        if "send" in desc.lower():
+            raise PublishError(
+                f"Tool '{t.name}' is described as '{desc}'. That looks like a Send action. "
+                "Open that node in n8n and make sure it is a Draft > Create (or Docs) operation, not Send."
+            )
+
+
+# n8n auto-names a model-filled field inside the Docs "Insert Text" action like this. It is the
+# Insert Text field of the append_to_doc node, so it is accepted as an alias for our logical "text".
+INPUT_ALIASES: dict[str, tuple[str, ...]] = {"text": ("actionfields0_old_text",)}
+
+
+def _schema_props(tool) -> dict:
+    schema = getattr(tool, "input_schema", None) or getattr(tool, "inputSchema", None) or {}
+    return schema.get("properties", {}) or {}
+
+
+def resolve_args(tool, values: dict[str, str]) -> dict[str, str]:
+    """Map my logical argument names onto the tool's real input names (case-insensitive).
+
+    Fails if the node does not accept an input I need to send, or requires one I do not supply.
+    """
+    props = _schema_props(tool)
+    by_lower = {k.lower(): k for k in props}
+    out: dict[str, str] = {}
+    for logical, value in values.items():
+        real = by_lower.get(logical.lower())
+        if real is None:
+            real = next((by_lower[a] for a in INPUT_ALIASES.get(logical.lower(), ()) if a in by_lower), None)
+        if real is None:
+            raise PublishError(
+                f"Tool '{tool.name}' has no '{logical}' input (it expects {sorted(props)}). "
+                "Fix the node in n8n so the model-filled field is named correctly."
+            )
+        out[real] = value
+    schema = getattr(tool, "input_schema", None) or getattr(tool, "inputSchema", None) or {}
+    unsupplied = [r for r in schema.get("required", []) if r not in out]
+    if unsupplied:
+        raise PublishError(f"Tool '{tool.name}' also requires {unsupplied}, which this app does not provide.")
+    return out
 
 
 async def call_tool(session: ClientSession, name: str, arguments: dict | None = None) -> str:
@@ -118,6 +180,6 @@ async def call_tool(session: ClientSession, name: str, arguments: dict | None = 
     if name not in EXPECTED_TOOLS:
         raise PublishError(f"Refusing to call unexpected tool '{name}'.")
     result = await session.call_tool(name, arguments or {})
-    if getattr(result, "isError", False):
+    if getattr(result, "is_error", False) or getattr(result, "isError", False):
         raise PublishError(f"Tool '{name}' reported an error.")
     return "\n".join(getattr(c, "text", "") for c in result.content)
